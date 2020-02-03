@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class JadwalbukaController extends Controller
 {
+	 public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
 
     	//mengambil data dari table jadwal buka

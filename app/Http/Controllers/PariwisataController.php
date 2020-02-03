@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PariwisataController extends Controller
 {
+	 public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
 
     	//mengambil data dari table pariwisata

@@ -7,12 +7,17 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
 
     	//mengambil data dari table admin
     	$admin = DB::table('admin')->get();
-
-    	return view('index_admin', ['admin' => $admin]);
+    	
+        return view('home', ['admin' => $admin]);
     }
 
     public function tambah(){
@@ -28,7 +33,7 @@ class AdminController extends Controller
     		'foto_admin' => $request->foto
     	]);
 
-    	return redirect('/backend/admin');
+    	return redirect('/home');
     }
 
     public function edit($id){
@@ -46,13 +51,13 @@ class AdminController extends Controller
     		'password'=>$request->password,
     		'foto_admin'=>$request->foto
     	]);
-    	return redirect('/backend/admin');
+    	return redirect('/home');
     }
 
     public function hapus($id){
 		//menghapus data pegawai berdasarkan id yang dipilih
 		DB::table('admin')->where('id_admin', $id)->delete();
 		//alihkan halaman ke halaman pegawai
-		return redirect('/backend/admin');
+		return redirect('/home');
 	}
 }

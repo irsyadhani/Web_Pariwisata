@@ -61,3 +61,6 @@ Route::get('/backend/pariwisata', 'PariwisataController@index');
 
 //route untuk detail review
 Route::get('/backend/review', 'ReviewController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
