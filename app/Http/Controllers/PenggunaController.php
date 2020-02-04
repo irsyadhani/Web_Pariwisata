@@ -15,7 +15,7 @@ class PenggunaController extends Controller
     public function index(){
 
     	//mengambil data dari table pengguna
-    	$pengguna = DB::table('pengguna')->get();
+    	$pengguna = DB::table('pengguna')->paginate(10);
 
     	return view('index_pengguna', ['pengguna' => $pengguna]);
     }

@@ -2,6 +2,13 @@
 
 @section('content')
 <!-- header -->
+<style type="text/css">
+    .pagination li{
+        float: left;
+        list-style-type: none;
+        margin:5px;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -61,6 +68,11 @@
 						</tr>
 						@endforeach
 					</table>
+					Halaman : {{$pengguna->currentPage()}} <br>
+                    Jumlah Data : {{$pengguna->total()}} <br>
+                    Data Per Halaman : {{$pengguna->perPage()}} <br>
+                    <br>
+                    {{$pengguna->links()}}
 <!-- footer -->
 					<br>
                     <hr>

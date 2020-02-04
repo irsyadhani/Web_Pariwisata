@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+    .pagination li{
+        float: left;
+        list-style-type: none;
+        margin:5px;
+    }
+</style>
 <!-- header -->
 <div class="container">
     <div class="row justify-content-center">
@@ -61,6 +68,11 @@
 						</tr>
 						@endforeach
 					</table>
+					Halaman : {{$review->currentPage()}} <br>
+                    Jumlah Data : {{$review->total()}} <br>
+                    Data Per Halaman : {{$review->perPage()}} <br>
+                    <br>
+                    {{$review->links()}}
 <!-- footer -->
 					<br>
                     <hr>

@@ -2,6 +2,13 @@
 
 @section('content')
 <!-- header -->
+<style type="text/css">
+    .pagination li{
+        float: left;
+        list-style-type: none;
+        margin:5px;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -59,6 +66,11 @@
 						</tr>
 						@endforeach
 					</table>
+					Halaman : {{$jadwal_buka->currentPage()}} <br>
+                    Jumlah Data : {{$jadwal_buka->total()}} <br>
+                    Data Per Halaman : {{$jadwal_buka->perPage()}} <br>
+                    <br>
+                    {{$jadwal_buka->links()}}
 <!-- footer -->
 					<br>
                     <hr>

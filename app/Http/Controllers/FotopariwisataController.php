@@ -15,7 +15,7 @@ class FotopariwisataController extends Controller
     public function index(){
 
     	//mengambil data dari table foto_pariwisata
-    	$foto_pariwisata = DB::table('foto_pariwisata')->get();
+    	$foto_pariwisata = DB::table('foto_pariwisata')->paginate(10);
 
     	return view('index_foto_pariwisata', ['foto_pariwisata' => $foto_pariwisata]);
     }

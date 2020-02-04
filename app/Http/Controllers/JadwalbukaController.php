@@ -15,7 +15,7 @@ class JadwalbukaController extends Controller
     public function index(){
 
     	//mengambil data dari table jadwal buka
-    	$jadwal_buka = DB::table('jadwal_buka')->get();
+    	$jadwal_buka = DB::table('jadwal_buka')->paginate(10);
 
     	return view('index_jadwal_buka', ['jadwal_buka' => $jadwal_buka]);
     }

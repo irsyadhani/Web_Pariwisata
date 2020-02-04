@@ -15,7 +15,7 @@ class DetailpariwisataController extends Controller
     public function index(){
 
     	//mengambil data dari table detail_pariwisata
-    	$detail_pariwisata = DB::table('detail_pariwisata')->get();
+    	$detail_pariwisata = DB::table('detail_pariwisata')->paginate(10);
 
     	return view('index_detail_pariwisata', ['detail_pariwisata' => $detail_pariwisata]);
     }

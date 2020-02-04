@@ -14,7 +14,7 @@ class PariwisataController extends Controller
     public function index(){
 
     	//mengambil data dari table pariwisata
-    	$pariwisata = DB::table('pariwisata')->get();
+    	$pariwisata = DB::table('pariwisata')->paginate(5);
 
     	return view('index_pariwisata', ['pariwisata' => $pariwisata]);
     }

@@ -14,7 +14,7 @@ class kategoriController extends Controller
     public function index(){
 
     	//mengambil data dari table kategori
-    	$kategori = DB::table('kategori')->get();
+    	$kategori = DB::table('kategori')->paginate(10);
 
     	return view('index_kategori', ['kategori' => $kategori]);
     }

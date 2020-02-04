@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index(){
 
     	//mengambil data dari table review
-    	$review = DB::table('review')->get();
+    	$review = DB::table('review')->paginate(10);
 
     	return view('index_review', ['review' => $review]);
     }

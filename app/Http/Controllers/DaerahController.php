@@ -14,7 +14,7 @@ class DaerahController extends Controller
     public function index(){
 
     	//mengambil data dari table daerah
-    	$daerah = DB::table('daerah')->get();
+    	$daerah = DB::table('daerah')->paginate(10);
 
     	return view('index_daerah', ['daerah' => $daerah]);
     }

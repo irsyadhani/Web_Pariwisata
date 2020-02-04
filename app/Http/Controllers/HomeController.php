@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
 
         //mengambil data dari table admin
-        $admin = DB::table('admin')->get();
+        $admin = DB::table('admin')->paginate(10);
 
         return view('home', ['admin' => $admin]);
     }
