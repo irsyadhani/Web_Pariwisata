@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -11,23 +10,15 @@
 
                 <div class="card-body">
                     <nav>
-                        <a href="/home">ADMIN</a>
-                        |
-                        <a href="/backend/daerah">DAERAH</a>
-                        |
-                        <a href="/backend/kategori">KATEGORI</a>
-                        |
-                        <a href="/backend/pengguna">PENGGUNA</a>
-                        |
-                        <a href="/backend/detail_pariwisata">DETAIL PARIWISATA</a>
-                        |
-                        <a href="/backend/foto_pariwisata">FOTO PARIWISATA</a>
-                        |
-                        <a href="/backend/jadwal_buka">JADWAL BUKA</a>
-                        |
-                        <a href="/backend/pariwisata">PARIWISATA</a>
-                        |
-                        <a href="/backend/review">REVIEW</a>
+                        <a href="/home" class="btn btn-dark btn-sm">ADMIN</a>
+                        <a href="/backend/daerah" class="btn btn-dark btn-sm">DAERAH</a>
+                        <a href="/backend/kategori" class="btn btn-dark btn-sm">KATEGORI</a>
+                        <a href="/backend/pengguna" class="btn btn-dark btn-sm">PENGGUNA</a>
+                        <a href="/backend/detail_pariwisata" class="btn btn-dark btn-sm">DETAIL PARIWISATA</a>
+                        <a href="/backend/foto_pariwisata" class="btn btn-dark btn-sm">FOTO PARIWISATA</a>
+                        <a href="/backend/jadwal_buka" class="btn btn-dark btn-sm">JADWAL BUKA</a>
+                        <a href="/backend/pariwisata" class="btn btn-dark btn-sm">PARIWISATA</a>
+                        <a href="/backend/review" class="btn btn-dark btn-sm">REVIEW</a>
                     </nav>
 
                     <hr>
@@ -35,11 +26,16 @@
 <!-- header -->
 					<h3>Data Daerah</h3>
 
-					<a href="/backend/daerah/tambah">+ Tambah Data</a>
+                    <div class="form-group">
+                        
+                    </div>
+
+					<a href="/backend/daerah/tambah" class="btn btn-success btn-sm">+ Tambah Data</a>
 
 					<br>
+                    <br>
 
-					<table border="1">
+					<table class="table table-bordered">
 						<tr>
 							<th>ID</th>
 							<th>Nama daerah</th>
@@ -50,9 +46,9 @@
 							<td>{{$d->id_daerah}}</td>
 							<td>{{$d->nama_daerah}}</td>
 							<td>
-								<a href="/backend/daerah/edit/{{$d->id_daerah}}">Edit</a>
-								|
-								<a href="/backend/daerah/hapus/{{$d->id_daerah}}">Hapus</a>
+								<a href="/backend/daerah/edit/{{$d->id_daerah}}" class="btn btn-warning btn-sm">Edit</a>
+								
+								<a href="/backend/daerah/hapus/{{$d->id_daerah}}" class="btn btn-danger btn-sm">Hapus</a>
 							</td>
 						</tr>
 						@endforeach
