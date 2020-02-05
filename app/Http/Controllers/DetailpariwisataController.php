@@ -19,4 +19,19 @@ class DetailpariwisataController extends Controller
 
     	return view('index_detail_pariwisata', ['detail_pariwisata' => $detail_pariwisata]);
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table detail pariwisata sesuai pencarian data
+        $detail_pariwisata = DB::table('detail_pariwisata')
+        ->where('id_pariwisata','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data detail pariwisata ke view index
+        return view('index_detail_pariwisata',['detail_pariwisata' => $detail_pariwisata]);
+ 
+    }
 }

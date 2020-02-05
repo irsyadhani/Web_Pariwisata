@@ -55,4 +55,19 @@ class DaerahController extends Controller
 		//alihkan halaman ke halaman pegawai
 		return redirect('/backend/daerah');
 	}
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table daerah sesuai pencarian data
+        $daerah = DB::table('daerah')
+        ->where('nama_daerah','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data daerah ke view index
+        return view('index_daerah',['daerah' => $daerah]);
+ 
+    }
 }

@@ -29,13 +29,18 @@
                     </nav>
 
                     <hr>
-                    <br>
 <!-- header -->
 					<h3>Data Pariwisata</h3>
 
 					<div class="form-group">
                         
                     </div>
+
+                    <form action="/backend/pariwisata/cari" method="GET" class="form-inline">
+                        <input type="text" class="form-control" name="cari" placeholder="Cari Pariwisata .." value="{{ old('cari') }}">
+                        <input type="submit" class="btn btn-light ml-3" value="CARI">
+                    </form>
+                    <br>
 
 					<a href="/backend/pariwisata/tambah" class="btn btn-success btn-sm">+ Tambah Data</a>
 

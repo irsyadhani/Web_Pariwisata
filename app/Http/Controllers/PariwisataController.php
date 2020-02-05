@@ -18,4 +18,19 @@ class PariwisataController extends Controller
 
     	return view('index_pariwisata', ['pariwisata' => $pariwisata]);
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table pariwisata sesuai pencarian data
+        $pariwisata = DB::table('pariwisata')
+        ->where('nama_tempat','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data pariwisata ke view index
+        return view('index_pariwisata',['pariwisata' => $pariwisata]);
+ 
+    }
 }

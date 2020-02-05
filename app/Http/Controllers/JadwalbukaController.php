@@ -20,5 +20,18 @@ class JadwalbukaController extends Controller
     	return view('index_jadwal_buka', ['jadwal_buka' => $jadwal_buka]);
     }
 
-    
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table jadwal buka sesuai pencarian data
+        $jadwal_buka = DB::table('jadwal_buka')
+        ->where('hari_buka','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data jadwal buka ke view index
+        return view('index_jadwal_buka',['jadwal_buka' => $jadwal_buka]);
+ 
+    }
 }

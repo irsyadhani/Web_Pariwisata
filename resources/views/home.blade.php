@@ -37,6 +37,12 @@
                         
                     </div>
                     
+                    <form action="/home/cari" method="GET" class="form-inline">
+                        <input type="text" class="form-control" name="cari" placeholder="Cari Admin .." value="{{ old('cari') }}">
+                        <input type="submit" class="btn btn-light ml-3" value="CARI">
+                    </form>
+                    <br>
+
                     <a href="/backend/admin/tambah" class="btn btn-success btn-sm">+ Tambah Data</a>
 
                     <br>

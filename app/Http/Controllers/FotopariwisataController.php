@@ -19,4 +19,19 @@ class FotopariwisataController extends Controller
 
     	return view('index_foto_pariwisata', ['foto_pariwisata' => $foto_pariwisata]);
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table foto pariwisata sesuai pencarian data
+        $foto_pariwisata = DB::table('foto_pariwisata')
+        ->where('foto_pariwisata','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data daerah ke view index
+        return view('index_foto_pariwisata',['foto_pariwisata' => $foto_pariwisata]);
+ 
+    }
 }

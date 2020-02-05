@@ -55,4 +55,19 @@ class kategoriController extends Controller
 		//alihkan halaman ke halaman pegawai
 		return redirect('/backend/kategori');
 	}
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table kategori sesuai pencarian data
+        $kategori = DB::table('kategori')
+        ->where('nama_kategori','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data daerah ke view index
+        return view('index_kategori',['kategori' => $kategori]);
+ 
+    }
 }

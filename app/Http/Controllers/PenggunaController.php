@@ -64,4 +64,19 @@ class PenggunaController extends Controller
 		//alihkan halaman ke halaman pegawai
 		return redirect('/backend/pengguna');
 	}
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table pengguna sesuai pencarian data
+        $pengguna = DB::table('pengguna')
+        ->where('nama_pengguna','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data pengguna ke view index
+        return view('index_pengguna',['pengguna' => $pengguna]);
+ 
+    }
 }

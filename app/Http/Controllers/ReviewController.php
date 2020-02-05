@@ -19,4 +19,19 @@ class ReviewController extends Controller
 
     	return view('index_review', ['review' => $review]);
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table review sesuai pencarian data
+        $review = DB::table('review')
+        ->where('deskripsi_review','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data review ke view index
+        return view('index_review',['review' => $review]);
+ 
+    }
 }

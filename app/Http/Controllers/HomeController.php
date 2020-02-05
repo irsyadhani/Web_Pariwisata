@@ -30,4 +30,19 @@ class HomeController extends Controller
 
         return view('home', ['admin' => $admin]);
     }
+
+    public function cari(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+            // mengambil data dari table admin sesuai pencarian data
+        $admin = DB::table('admin')
+        ->where('administrator','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data admin ke view index
+        return view('home',['admin' => $admin]);
+ 
+    }
 }
