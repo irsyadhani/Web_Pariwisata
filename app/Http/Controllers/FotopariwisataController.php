@@ -15,7 +15,7 @@ class FotopariwisataController extends Controller
     public function index(){
 
     	//mengambil data dari table foto_pariwisata
-    	$foto_pariwisata = DB::table('foto_pariwisata')->paginate(10);
+    	$foto_pariwisata = DB::table('foto_pariwisata')->select('foto_pariwisata.*', 'pariwisata.*')->join('pariwisata', 'pariwisata.id_pariwisata', '=', 'foto_pariwisata.id_pariwisata')->paginate(10);
 
     	return view('index_foto_pariwisata', ['foto_pariwisata' => $foto_pariwisata]);
     }
@@ -28,11 +28,15 @@ class FotopariwisataController extends Controller
     }
 
     public function store(Request $request){
+        $gambar = $request->file('foto');
+        $nama_gambar = time()."_".$gambar->getClientOriginalName();
+        $tujuan_upload = 'img/foto_pariwisata/';
+        $gambar->move($tujuan_upload,$nama_gambar);
 
         DB::table('foto_pariwisata')->insert([
             'id_foto' => $request->id_foto,
             'id_pariwisata' => $request->id_pariwisata,
-            'foto_pariwisata' => $request->foto
+            'foto_pariwisata' => $nama_gambar
         ]);
 
         return redirect('/backend/foto_pariwisata');
@@ -47,10 +51,15 @@ class FotopariwisataController extends Controller
     }
 
     public function update(Request $request){
+        $gambar = $request->file('foto');
+        $nama_gambar = time()."_".$gambar->getClientOriginalName();
+        $tujuan_upload = 'img/foto_pariwisata/';
+        $gambar->move($tujuan_upload,$nama_gambar);
+
         DB::table('foto_pariwisata')->where('id_foto', $request->id)->update([
             'id_foto'=>$request->id,
             'id_pariwisata'=>$request->id_pariwisata,
-            'foto_pariwisata'=>$request->foto
+            'foto_pariwisata' => $nama_gambar
         ]);
         return redirect('/backend/foto_pariwisata');
     }

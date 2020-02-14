@@ -50,7 +50,7 @@
 					<table class="table table-bordered">
 						<tr>
 							<th>ID Pariwisata</th>
-							<th>ID Daerah</th>
+							<th>Daerah</th>
 							<th>Nama Tempat</th>
 							<th>Alamat</th>
 							<th>Biaya Masuk</th>
@@ -61,11 +61,11 @@
 						@foreach($pariwisata as $pws)
 						<tr>
 							<td>{{$pws->id_pariwisata}}</td>
-							<td>{{$pws->id_daerah}}</td>
+							<td>{{$pws->nama_daerah}}</td>
 							<td>{{$pws->nama_tempat}}</td>
 							<td>{{$pws->alamat_pariwisata}}</td>
 							<td>{{$pws->biaya_masuk}}</td>
-							<td>{{$pws->deskripsi_pariwisata}}</td>
+							<td width="400px">{{$pws->deskripsi_pariwisata}}</td>
 							<td>{{$pws->avg_rating}}</td>
 							<td>
 								<a href="/backend/pariwisata/edit/{{$pws->id_pariwisata}}" class="btn btn-warning btn-sm">Edit</a>

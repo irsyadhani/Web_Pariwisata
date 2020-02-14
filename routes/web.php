@@ -52,6 +52,8 @@ Route::get('/backend/pengguna/cari','PenggunaController@cari');
 
 //route untuk detail pariwisata
 Route::get('/backend/detail_pariwisata', 'DetailpariwisataController@index');
+Route::get('/backend/detail_pariwisata/tambah', 'DetailpariwisataController@tambah');
+Route::post('/backend/detail_pariwisata/store', 'DetailpariwisataController@store');
 Route::get('/backend/detail_pariwisata/cari','DetailpariwisataController@cari');
 
 //route untuk foto pariwisata
@@ -65,14 +67,29 @@ Route::get('/backend/foto_pariwisata/hapus/{id}', 'FotopariwisataController@hapu
 
 //route untuk jadwal buka
 Route::get('/backend/jadwal_buka', 'JadwalbukaController@index');
+Route::get('/backend/jadwal_buka/tambah', 'JadwalbukaController@tambah');
+Route::post('/backend/jadwal_buka/store', 'JadwalbukaController@store');
+Route::get('/backend/jadwal_buka/edit/{id}', 'JadwalbukaController@edit');
+Route::post('/backend/jadwal_buka/update', 'JadwalbukaController@update');
+Route::get('/backend/jadwal_buka/hapus/{id}', 'JadwalbukaController@hapus');
 Route::get('/backend/jadwal_buka/cari','JadwalbukaController@cari');
 
 //route untuk pariwisata
 Route::get('/backend/pariwisata', 'PariwisataController@index');
+Route::get('/backend/pariwisata/tambah', 'PariwisataController@tambah');
+Route::post('/backend/pariwisata/store', 'PariwisataController@store');
+Route::get('/backend/pariwisata/edit/{id}', 'PariwisataController@edit');
+Route::post('/backend/pariwisata/update', 'PariwisataController@update');
+Route::get('/backend/pariwisata/hapus/{id}', 'PariwisataController@hapus');
 Route::get('/backend/pariwisata/cari','PariwisataController@cari');
 
 //route untuk detail review
 Route::get('/backend/review', 'ReviewController@index');
+Route::get('/backend/review/tambah', 'ReviewController@tambah');
+Route::post('/backend/review/store', 'ReviewController@store');
+Route::get('/backend/review/edit/{id}', 'ReviewController@edit');
+Route::post('/backend/review/update', 'ReviewController@update');
+Route::get('/backend/review/hapus/{id}', 'ReviewController@hapus');
 Route::get('/backend/review/cari','ReviewController@cari');
 
 Auth::routes();

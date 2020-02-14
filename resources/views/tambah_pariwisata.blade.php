@@ -24,27 +24,35 @@
                     <hr>
                     <br>
 <!-- header -->
-					<h3>Tambah Data Foto Pariwisata</h3>
+					<h3>Tambah Data Pariwisata</h3>
 					<br>
 
-					<form action="/backend/foto_pariwisata/store" method="post" enctype="multipart/form-data">
+					<form action="/backend/pariwisata/store" method="post">
 						{{csrf_field()}}
-						ID Foto :
-						<input type="text" class="form-control" name="id_foto" required="required">
-						<br>
 						ID Pariwisata :
-						<select class="form-control form-control-sm" name="id_pariwisata">
-							<option>Nama Pariwisata</option>
-							@foreach($pariwisata as $p)
-							<option value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
+						<input type="text" class="form-control" name="id" required="required">
+						<br>
+						ID Daerah :
+						<select class="form-control form-control-sm" name="id_daerah">
+							<option>Nama Daerah</option>
+							@foreach($daerah as $d)
+							<option value="{{$d->id_daerah}}">{{$d->nama_daerah}}</option>
 							@endforeach
 						</select>
 						<br>
-						Foto :
-						<input type="file" name="foto" required="required">
+						Nama Tempat :
+						<input type="text" class="form-control" name="nama" required="required">
 						<br>
+						Alamat :
+						<input type="text" class="form-control" name="alamat" required="required">
 						<br>
-						<a href="/backend/foto_pariwisata" class="btn btn-secondary btn-sm">Back</a>
+						Biaya Masuk :
+						<input type="number" class="form-control" name="biaya" required="required">
+						<br>
+						Deskripsi :
+						<textarea name="deskripsi" class="form-control"></textarea>
+						<br>
+						<a href="/backend/pariwisata" class="btn btn-secondary btn-sm">Back</a>
 						
 						<input type="submit" class="btn btn-primary btn-sm" value="Simpan Data">
 					</form>

@@ -24,27 +24,44 @@
                     <hr>
                     <br>
 <!-- header -->
-					<h3>Tambah Data Foto Pariwisata</h3>
+					<h3>Tambah Data Review</h3>
 					<br>
 
-					<form action="/backend/foto_pariwisata/store" method="post" enctype="multipart/form-data">
+					<form action="/backend/review/store" method="post">
 						{{csrf_field()}}
-						ID Foto :
-						<input type="text" class="form-control" name="id_foto" required="required">
+						ID Review :
+						<input type="text" class="form-control" name="id" required="required">
+						<br>
+						ID Pengguna :
+						<select class="form-control form-control-sm" name="id_pengguna">
+							<option>Nama Pengguna</option>
+							@foreach($pengguna as $pg)
+							<option value="{{$pg->id_pengguna}}"></option>
+							@endforeach
+						</select>
 						<br>
 						ID Pariwisata :
 						<select class="form-control form-control-sm" name="id_pariwisata">
 							<option>Nama Pariwisata</option>
-							@foreach($pariwisata as $p)
-							<option value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
+							@foreach($review as $r)
+							<option value="{{$r->id_pariwisata}}">{{$r->nama_tempat}}</option>
 							@endforeach
 						</select>
 						<br>
-						Foto :
-						<input type="file" name="foto" required="required">
+						Status :
+						<select class="form-control form-control-sm" name="Status">
+							<option>Status</option>
+							<option value="Tampil">Tampil</option>
+							<option value="Tidak Tampil">Tidak Tampil</option>
+						</select>
 						<br>
+						Rating :
+						<input type="number" class="form-control" name="rating" required="required">
 						<br>
-						<a href="/backend/foto_pariwisata" class="btn btn-secondary btn-sm">Back</a>
+						Deskripsi :
+						<textarea name="deskripsi_review" class="form-control"></textarea>
+						<br>
+						<a href="/backend/review" class="btn btn-secondary btn-sm">Back</a>
 						
 						<input type="submit" class="btn btn-primary btn-sm" value="Simpan Data">
 					</form>

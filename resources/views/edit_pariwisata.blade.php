@@ -32,27 +32,35 @@
                     <hr>
                     <br>
 <!-- header -->
-					<h3>Edit Data Foto Pariwisata</h3>
+					<h3>Edit Data Pariwisata</h3>
 					<br>
 
-					@foreach($foto_pariwisata as $fp)
-						<form action="/backend/foto_pariwisata/update" method="post" enctype="multipart/form-data">
+					@foreach($pariwisata as $p)
+						<form action="/backend/pariwisata/update" method="post">
 							{{csrf_field()}}
-							<input type="hidden" name="id" value="{{$fp->id_foto}}">
+							<input type="hidden" name="id" value="{{$p->id_pariwisata}}">
 							<br>
-							ID Pariwisata :
-							<select class="form-control form-control-sm" name="id_pariwisata">
-								<option name="id_pariwisata" value="{{$fp->id_pariwisata}}">{{$fp->nama_tempat}}</option>
-								@foreach($pariwisata as $p)
-								<option name="id_pariwisata" value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
+							ID Daerah :
+							<select class="form-control form-control-sm" name="id_daerah">
+								<option name="id_daerah" value="{{$p->id_daerah}}">{{$p->nama_daerah}}</option>
+								@foreach($daerah as $d)
+								<option name="id_daerah" value="{{$d->id_daerah}}">{{$d->nama_daerah}}</option>
 								@endforeach
 							</select>
 							<br>
-							Foto :
-							<input type="file" name="foto" value="{{$fp->foto_pariwisata}}" required="required">
+							Nama Tempat :
+							<input class="form-control" type="text" name="nama" value="{{$p->nama_tempat}}">
 							<br>
+							Alamat :
+							<input type="text" class="form-control" name="alamat" value="{{$p->alamat_pariwisata}}">
 							<br>
-							<a href="/backend/foto_pariwisata" class="btn btn-secondary btn-sm">Back</a>
+							Biaya Masuk :
+							<input type="number" class="form-control" name="biaya" value="{{$p->biaya_masuk}}">
+							<br>
+							Deskripsi :
+							<textarea rows="5" name="deskripsi" class="form-control">{{$p->deskripsi_pariwisata}}</textarea>
+							<br>
+							<a href="/backend/jadwal_buka" class="btn btn-secondary btn-sm">Back</a>
 							
 							<input type="submit" class="btn btn-primary btn-sm" value="Simpan Data">
 						</form>

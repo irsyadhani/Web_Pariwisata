@@ -24,32 +24,34 @@
                     <hr>
                     <br>
 <!-- header -->
-					<h3>Tambah Data Foto Pariwisata</h3>
-					<br>
+                    <h3>Tambah Data Detail Pariwisata</h3>
+                    <br>
 
-					<form action="/backend/foto_pariwisata/store" method="post" enctype="multipart/form-data">
-						{{csrf_field()}}
-						ID Foto :
-						<input type="text" class="form-control" name="id_foto" required="required">
-						<br>
-						ID Pariwisata :
-						<select class="form-control form-control-sm" name="id_pariwisata">
-							<option>Nama Pariwisata</option>
-							@foreach($pariwisata as $p)
-							<option value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
-							@endforeach
-						</select>
-						<br>
-						Foto :
-						<input type="file" name="foto" required="required">
-						<br>
-						<br>
-						<a href="/backend/foto_pariwisata" class="btn btn-secondary btn-sm">Back</a>
-						
-						<input type="submit" class="btn btn-primary btn-sm" value="Simpan Data">
-					</form>
+                    <form action="/backend/detail_pariwisata/store" method="post">
+                        {{csrf_field()}}
+                        ID Pariwisata :
+                        <select class="form-control form-control-sm" name="id_pariwisata">
+                            <option>Nama Pariwisata</option>
+                            @foreach($pariwisata as $p)
+                            <option value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
+                            @endforeach
+                        </select>
+                        ID Kategori :
+                        <select class="form-control form-control-sm" name="id_kategori">
+                            <option>Nama Kategori</option>
+                            @foreach($kategori as $k)
+                            <option value="{{$k->id_kategori}}">{{$k->nama_kategori}}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                        <br>
+                        <br>
+                        <a href="/backend/detail_pariwisata" class="btn btn-secondary btn-sm">Back</a>
+                        
+                        <input type="submit" class="btn btn-primary btn-sm" value="Simpan Data">
+                    </form>
 <!-- footer -->
-					<br>
+                    <br>
                     <hr>
                     <footer><p>&copy; WISATA PELESIR 2020</p></footer>
                 </div>

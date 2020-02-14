@@ -50,7 +50,7 @@
 					<table class="table table-bordered">
 						<tr>
 							<th>ID Jadwal</th>
-							<th>ID Pariwisata</th>
+							<th>Nama Pariwisata</th>
 							<th>Hari Buka</th>
 							<th>Jam Buka</th>
 							<th>Jam Tutup</th>
@@ -59,7 +59,7 @@
 						@foreach($jadwal_buka as $jb)
 						<tr>
 							<td>{{$jb->id_jadwal}}</td>
-							<td>{{$jb->id_pariwisata}}</td>
+							<td>{{$jb->nama_tempat}}</td>
 							<td>{{$jb->hari_buka}}</td>
 							<td>{{$jb->jam_buka}}</td>
 							<td>{{$jb->jam_tutup}}</td>

@@ -50,8 +50,8 @@
 					<table class="table table-bordered">
 						<tr>
 							<th>ID Review</th>
-							<th>ID Pengguna</th>
-							<th>ID Pariwisata</th>
+							<th>Pengguna</th>
+							<th>Nama Pariwisata</th>
 							<th>Status</th>
 							<th>Rating</th>
 							<th>Deskripsi</th>
@@ -60,11 +60,11 @@
 						@foreach($review as $r)
 						<tr>
 							<td>{{$r->id_review}}</td>
-							<td>{{$r->id_pengguna}}</td>
-							<td>{{$r->id_pariwisata}}</td>
+							<td>{{$r->nama_pengguna}}</td>
+							<td>{{$r->nama_tempat}}</td>
 							<td>{{$r->status}}</td>
 							<td>{{$r->rating_review}}</td>
-							<td>{{$r->deskripsi_review}}</td>
+							<td width="350px">{{$r->deskripsi_review}}</td>
 							<td>
 								<a href="/backend/review/edit/{{$r->id_review}}" class="btn btn-warning btn-sm">Edit</a>
 								

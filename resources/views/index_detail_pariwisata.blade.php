@@ -42,20 +42,20 @@
                     </form>
                     <br>
 
-					<a href="/backend/detail_pariwisata" class="btn btn-success btn-sm">+ Tambah Data</a>
+					<a href="/backend/detail_pariwisata/tambah" class="btn btn-success btn-sm">+ Tambah Data</a>
 
 					<br>
                     <br>
 
 					<table border="1" class="table table-bordered">
 						<tr>
-							<th>ID Pariwsata</th>
-							<th>ID Kategori</th>
+							<th>Pariwsata</th>
+							<th>Kategori</th>
 						</tr>
 						@foreach($detail_pariwisata as $dp)
 						<tr>
-							<td>{{$dp->id_pariwisata}}</td>
-							<td>{{$dp->id_kategori}}</td>
+							<td>{{$dp->nama_tempat}}</td>
+							<td>{{$dp->nama_kategori}}</td>
 							
 						</tr>
 						@endforeach

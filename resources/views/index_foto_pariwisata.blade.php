@@ -50,14 +50,14 @@
 					<table class="table table-bordered">
 						<tr>
 							<th>ID Foto</th>
-							<th>ID Pariwisata</th>
+							<th>Nama Pariwisata</th>
 							<th>Foto Pariwisata</th>
 							<th>Opsi</th>
 						</tr>
 						@foreach($foto_pariwisata as $fp)
 						<tr>
 							<td>{{$fp->id_foto}}</td>
-							<td>{{$fp->id_pariwisata}}</td>
+							<td>{{$fp->nama_tempat}}</td>
 							<td><img width="150px" src="{{ url('/img/foto_pariwisata/'.$fp->foto_pariwisata) }}"></td>
 							<td>
 								<a href="/backend/foto_pariwisata/edit/{{$fp->id_foto}}" class="btn btn-warning btn-sm">Edit</a>

@@ -24,13 +24,13 @@
                     <hr>
                     <br>
 <!-- header -->
-					<h3>Tambah Data Foto Pariwisata</h3>
+					<h3>Tambah Data Jadwal Buka</h3>
 					<br>
 
-					<form action="/backend/foto_pariwisata/store" method="post" enctype="multipart/form-data">
+					<form action="/backend/jadwal_buka/store" method="post">
 						{{csrf_field()}}
-						ID Foto :
-						<input type="text" class="form-control" name="id_foto" required="required">
+						ID Jadwal :
+						<input type="text" class="form-control" name="id" required="required">
 						<br>
 						ID Pariwisata :
 						<select class="form-control form-control-sm" name="id_pariwisata">
@@ -40,11 +40,16 @@
 							@endforeach
 						</select>
 						<br>
-						Foto :
-						<input type="file" name="foto" required="required">
+						Hari Buka :
+						<input type="text" class="form-control" name="hari_buka" required="required">
 						<br>
+						Jam Buka :
+						<input type="time" class="form-control" name="jam_buka" required="required">
 						<br>
-						<a href="/backend/foto_pariwisata" class="btn btn-secondary btn-sm">Back</a>
+						Jam Tutup :
+						<input type="time" class="form-control" name="jam_tutup" required="required">
+						<br>
+						<a href="/backend/jadwal_buka" class="btn btn-secondary btn-sm">Back</a>
 						
 						<input type="submit" class="btn btn-primary btn-sm" value="Simpan Data">
 					</form>
