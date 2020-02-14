@@ -24,7 +24,7 @@
                     <hr>
                     <br>
 <!-- header -->
-					<h3>Tambah Data Pengguna</h3>
+					<h3>Tambah Data Foto Pariwisata</h3>
 					<br>
 
 					<form action="/backend/pengguna/store" method="post">
