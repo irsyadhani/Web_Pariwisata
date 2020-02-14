@@ -57,6 +57,11 @@ Route::get('/backend/detail_pariwisata/cari','DetailpariwisataController@cari');
 //route untuk foto pariwisata
 Route::get('/backend/foto_pariwisata', 'FotopariwisataController@index');
 Route::get('/backend/foto_pariwisata/cari','FotopariwisataController@cari');
+Route::get('/backend/foto_pariwisata/tambah', 'FotopariwisataController@tambah');
+Route::post('/backend/foto_pariwisata/store', 'FotopariwisataController@store');
+Route::get('/backend/foto_pariwisata/edit/{id}', 'FotopariwisataController@edit');
+Route::post('/backend/foto_pariwisata/update', 'FotopariwisataController@update');
+Route::get('/backend/foto_pariwisata/hapus/{id}', 'FotopariwisataController@hapus');
 
 //route untuk jadwal buka
 Route::get('/backend/jadwal_buka', 'JadwalbukaController@index');

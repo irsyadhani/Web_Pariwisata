@@ -38,13 +38,13 @@
 					@foreach($foto_pariwisata as $fp)
 						<form action="/backend/foto_pariwisata/update" method="post">
 							{{csrf_field()}}
-							<input type="hidden" name="id_foto" value="{{$fp->id_foto}}">
+							<input type="text" name="id" value="{{$fp->id_foto}}">
 							<br>
 							ID Pariwisata :
 							<select class="form-control form-control-sm" name="id_pariwisata">
-								<option value="{{$fp->id_pariwisata}}">{{$fp->nama_tempat}}</option>
+								<option name="id_pariwisata" value="{{$fp->id_pariwisata}}">{{$fp->nama_tempat}}</option>
 								@foreach($pariwisata as $p)
-								<option value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
+								<option name="id_pariwisata" value="{{$p->id_pariwisata}}">{{$p->nama_tempat}}</option>
 								@endforeach
 							</select>
 							<br>

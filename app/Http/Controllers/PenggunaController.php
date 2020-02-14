@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 
 class PenggunaController extends Controller
 {
-     public function __construct()
+     private function __construct()
     {
         $this->middleware('auth');
     }
     
     public function index(){
-
     	//mengambil data dari table pengguna
     	$pengguna = DB::table('pengguna')->paginate(10);
 
@@ -39,7 +38,6 @@ class PenggunaController extends Controller
     }
 
     public function edit($id){
-
     	//mengambil data dari table pengguna
     	$pengguna = DB::table('pengguna')->where('id_pengguna',$id)->get();
 
